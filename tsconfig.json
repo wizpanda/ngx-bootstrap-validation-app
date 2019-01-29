@@ -17,6 +17,14 @@
         "lib": [
             "es2018",
             "dom"
-        ]
+        ],
+        "paths": {
+            "ngx-bootstrap-validation": [
+                "dist/ngx-bootstrap-validation"
+            ],
+            "ngx-bootstrap-validation/*": [
+                "dist/ngx-bootstrap-validation/*"
+            ]
+        }
     }
 }
