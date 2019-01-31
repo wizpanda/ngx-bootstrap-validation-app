@@ -6,7 +6,12 @@
         "name": "Shashank Agrawal",
         "url": "https://www.wizpanda.com"
     },
-    "keywords": ["angular", "bootstrap", "library", "form-validation"],
+    "keywords": [
+        "angular",
+        "bootstrap",
+        "library",
+        "form-validation"
+    ],
     "peerDependencies": {
         "@angular/common": "^7.2.0",
         "@angular/core": "^7.2.0"

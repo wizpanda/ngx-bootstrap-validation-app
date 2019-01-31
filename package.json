@@ -1,6 +1,5 @@
 {
     "name": "ngx-bootstrap-validation-app",
-    "version": "0.0.1",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
@@ -8,7 +7,6 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "version": "./release.sh",
         "postversion": "git push && git push --tags"
     },
     "private": true,

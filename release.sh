@@ -1,9 +1,14 @@
 #!/bin/bash -e
 
-echo "1"
+if [[ -z "$1" ]]; then
+    echo "Pass major/minor/patch as first argument"
+    exit 1
+fi
+
+cd projects/ngx-bootstrap-validation
+npm version $1
+cd -
 npm run build -- ngx-bootstrap-validation
-echo "2"
 cp README.md dist/ngx-bootstrap-validation/.
 cd dist/ngx-bootstrap-validation
-echo "3"
 npm publish --access public
