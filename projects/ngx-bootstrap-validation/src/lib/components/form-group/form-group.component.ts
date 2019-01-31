@@ -17,9 +17,6 @@ export class FormGroupComponent implements OnInit, AfterContentInit {
     @ContentChild(FormControlDirective)
     formControlDirective: FormControlDirective;
 
-    @Input()
-    customErrorMessages: FormErrorMessage[] = [];
-
     @ContentChild(ValidationFeedbackComponent)
     messagesBlock: ValidationFeedbackComponent;
 
