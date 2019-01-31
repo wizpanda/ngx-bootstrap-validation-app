@@ -4,11 +4,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Usage
 
-### Installation
+### 1. Installation
 
 ```bash
 npm i @wizpanda/ngx-bootstrap-validation --save
 ```
 
-### Add `[wpForm]` in your `<form>` tag
+### 2. Change in your `<form>` tag
 
+Add `[wpForm]` in your `<form>` tag and change `(submit)` to `(validFormSubmit)`.
