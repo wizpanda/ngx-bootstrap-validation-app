@@ -1,5 +1,6 @@
 {
     "name": "ngx-bootstrap-validation-app",
+    "version": "0.0.2",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
