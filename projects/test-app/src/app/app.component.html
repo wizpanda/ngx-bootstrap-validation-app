@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-6">
+        <form [wpForm] (validFormSubmit)="formSubmitted()">
+            <div class="form-group input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-user"></i></span>
+                </div>
+                <input type="text" class="form-control" placeholder="Email or mobile" name="username"
+                       [(ngModel)]="login.username" autofocus required autocomplete="username">
+            </div>
+
+            <div class="form-group input-group mb-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-lock"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Password" name="pin"
+                       [(ngModel)]="login.pin" required autocomplete="current-password">
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-primary px-4">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
