@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
     selector: 'wp-validation-feedback',
@@ -11,5 +11,11 @@ export class ValidationFeedbackComponent {
     public messages = () => []
 
     constructor() {
+    }
+
+    // TODO support valid-feedback as well
+    @HostBinding('class.invalid-feedback')
+    get classes() {
+        return true;
     }
 }

@@ -3,22 +3,25 @@ import { FormControlDirective } from './directives/form-control.directive';
 import { FormDirective } from './directives/form.directive';
 import { FormErrorMessage } from './form-error-message.model';
 import { ValidationFeedbackComponent } from './components/validation-feedback/validation-feedback.component';
-import { FormComponentComponent } from './components/form-component/form-component.component';
-
-export const CUSTOM_ERROR_MESSAGES = new InjectionToken<FormErrorMessage[]>(
-    'ng-bootstrap-validation-form-error-messages'
-);
+import { FormGroupComponent } from './components/form-group/form-group.component';
+import { CUSTOM_ERROR_MESSAGES } from './token';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
         FormControlDirective,
         FormDirective,
         ValidationFeedbackComponent,
-        FormComponentComponent
+        FormGroupComponent
+    ],
+    imports: [
+        CommonModule,
     ],
     exports: [
         FormControlDirective,
-        FormDirective
+        FormDirective,
+        ValidationFeedbackComponent,
+        FormGroupComponent
     ]
 })
 export class NgxBootstrapValidationModule {

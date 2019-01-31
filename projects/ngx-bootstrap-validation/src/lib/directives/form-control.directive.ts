@@ -1,5 +1,10 @@
-import { Directive, Host, HostBinding, Input, Optional, SkipSelf } from '@angular/core';
-import { ControlContainer, FormControl } from '@angular/forms';
+import { Directive, ElementRef, Host, HostBinding, Input, Optional, SkipSelf } from '@angular/core';
+import { ControlContainer, FormControl, FormGroup } from '@angular/forms';
+
+export function controlPath(name: string, parent: ControlContainer): string[] {
+    // tslint:disable-next-line:no-non-null-assertion
+    return [...parent.path!, name];
+}
 
 @Directive({
     // tslint:disable-next-line:directive-selector
@@ -7,9 +12,32 @@ import { ControlContainer, FormControl } from '@angular/forms';
 })
 export class FormControlDirective {
 
+    @Input()
+    formControlName: string;
+
     constructor(
         // TODO https://github.com/angular/angular/issues/25544
-        @Optional() @Host() @SkipSelf() private parent: ControlContainer) {
+        @Optional() @Host() @SkipSelf() private parent: ControlContainer,
+        @Optional() @Host() private formControl: FormControl,
+        private elementRef: ElementRef) {
+    }
+
+    get name() {
+        if (this.formControlName) {
+            return this.formControlName;
+        }
+
+        this.formControlName = this.elementRef.nativeElement.getAttribute('name');
+        return this.formControlName;
+    }
+
+    // This method will be invoked by "getControl" method on "formDirective"
+    get path() {
+        if (!this.formControlName) {
+            this.formControlName = this.elementRef.nativeElement.getAttribute('name');
+        }
+
+        return controlPath(this.name, this.parent);
     }
 
     @HostBinding('class.is-valid')

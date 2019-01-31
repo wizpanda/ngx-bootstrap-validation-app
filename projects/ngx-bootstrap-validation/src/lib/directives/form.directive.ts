@@ -1,19 +1,33 @@
-import { Directive, EventEmitter, Host, HostListener, Optional, Output } from '@angular/core';
-import { AbstractControl, FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Directive, EventEmitter, Host, HostListener, Input, OnInit, Optional, Output } from '@angular/core';
+import { AbstractControl, FormArray, FormControl, FormGroup, NgForm } from '@angular/forms';
 
 @Directive({
     selector: '[wpForm]'
 })
-export class FormDirective {
+export class FormDirective implements OnInit {
 
-    constructor(@Optional() @Host() private formGroup: FormGroup) {
-    }
+    @Input()
+    wpForm: string;         // https://stackoverflow.com/a/40706065/2405040
 
     @Output()
     validFormSubmit = new EventEmitter<any>();
 
+    constructor(@Optional() @Host() private ngForm: NgForm, @Optional() @Host() private formGroup: FormGroup) {
+    }
+
+    ngOnInit() {
+        if (!this.formGroup && this.ngForm) {
+            this.formGroup = this.ngForm.form;
+        }
+    }
+
     @HostListener('submit')
     onSubmit() {
+        if (!this.formGroup) {
+            console.warn('Could not find any formGroup or ngForm on the');
+            return;
+        }
+
         this.markAsTouchedAndDirty(this.formGroup);
         if (this.formGroup.valid) {
             this.validFormSubmit.emit(this.formGroup.value);
