@@ -1,6 +1,6 @@
 {
     "name": "@wizpanda/ngx-bootstrap-validation",
-    "version": "0.0.2",
+    "version": "0.0.4",
     "description": "A simple Angular 7+ library to display validation feedback messages on normal forms with Bootstrap 4",
     "author": {
         "name": "Shashank Agrawal",
