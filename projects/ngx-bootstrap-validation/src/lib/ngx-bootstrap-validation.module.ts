@@ -1,4 +1,4 @@
-import { InjectionToken, ModuleWithProviders, NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormControlDirective } from './directives/form-control.directive';
 import { FormDirective } from './directives/form.directive';
 import { FormErrorMessage } from './form-error-message.model';
@@ -6,20 +6,23 @@ import { ValidationFeedbackComponent } from './components/validation-feedback/va
 import { FormGroupComponent } from './components/form-group/form-group.component';
 import { CUSTOM_ERROR_MESSAGES } from './token';
 import { CommonModule } from '@angular/common';
+import { ParentFormDirective } from './directives/parent-form.directive';
 
 @NgModule({
     declarations: [
         FormControlDirective,
         FormDirective,
+        ParentFormDirective,
         ValidationFeedbackComponent,
         FormGroupComponent
     ],
     imports: [
-        CommonModule,
+        CommonModule
     ],
     exports: [
         FormControlDirective,
         FormDirective,
+        ParentFormDirective,
         ValidationFeedbackComponent,
         FormGroupComponent
     ]
