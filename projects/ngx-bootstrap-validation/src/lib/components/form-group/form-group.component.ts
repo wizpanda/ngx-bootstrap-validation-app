@@ -7,7 +7,7 @@ import { FormControlDirective } from '../../directives/form-control.directive';
 
 @Component({
     // tslint:disable:component-selector
-    selector: '.form-group',
+    selector: '.form-group,[wpFormGroup]',
     templateUrl: './form-group.component.html'
 })
 export class FormGroupComponent implements OnInit, AfterContentInit {
@@ -27,6 +27,10 @@ export class FormGroupComponent implements OnInit, AfterContentInit {
 
     @HostBinding('class.has-error')
     get hasErrors() {
+        if (!this.formControlDirective) {
+            return false;
+        }
+
         return this.formControlDirective.control &&
             !this.formControlDirective.control.valid &&
             this.formControlDirective.control.dirty &&
@@ -35,6 +39,10 @@ export class FormGroupComponent implements OnInit, AfterContentInit {
 
     @HostBinding('class.has-success')
     get hasSuccess() {
+        if (!this.formControlDirective) {
+            return false;
+        }
+
         return this.formControlDirective.control &&
             this.formControlDirective.control.valid &&
             this.formControlDirective.control.dirty &&
@@ -59,6 +67,10 @@ export class FormGroupComponent implements OnInit, AfterContentInit {
     }
 
     get isDirtyAndTouched() {
+        if (!this.formControlDirective) {
+            return false;
+        }
+
         return this.formControlDirective.control &&
             this.formControlDirective.control.dirty &&
             this.formControlDirective.control.touched;
