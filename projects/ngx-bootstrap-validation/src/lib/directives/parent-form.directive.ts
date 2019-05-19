@@ -7,7 +7,7 @@ import { ControlContainer, NgForm } from '@angular/forms';
     providers: [
         {
             provide: ControlContainer,
-            useFactory: function (form: NgForm) {
+            useFactory: (form: NgForm) => {
                 return form;
             },
             deps: [NgForm]
