@@ -6,13 +6,11 @@ import { ValidationFeedbackComponent } from './components/validation-feedback/va
 import { FormGroupComponent } from './components/form-group/form-group.component';
 import { CUSTOM_ERROR_MESSAGES } from './token';
 import { CommonModule } from '@angular/common';
-import { ParentFormDirective } from './directives/parent-form.directive';
 
 @NgModule({
     declarations: [
         FormControlDirective,
         FormDirective,
-        ParentFormDirective,
         ValidationFeedbackComponent,
         FormGroupComponent
     ],
@@ -22,7 +20,6 @@ import { ParentFormDirective } from './directives/parent-form.directive';
     exports: [
         FormControlDirective,
         FormDirective,
-        ParentFormDirective,
         ValidationFeedbackComponent,
         FormGroupComponent
     ]
